@@ -1,3 +1,5 @@
+import '../lib/conta.dart';
+
 void main() {
   Conta conta1 = Conta("Beto", 1000);
   Conta conta2 = Conta("Giovana", 1000);
@@ -6,24 +8,10 @@ void main() {
 
   print(conta1.titular);
 
-  conta2.saldo -= 100;
-
-  print(conta2.saldo);
+  conta2.receber(1000);
 
   for (Conta conta in contas) {
-    print(conta.titular);
-    print(conta.saldo);
-  } 
-}
+    conta.imprimirSaldo();
+  }
 
-void receber(Conta conta, double valor){
-  conta.saldo += valor;
-
-}
-
-class Conta {
-  String titular;
-  double saldo;
-
-  Conta(this.titular, this.saldo);
 }
